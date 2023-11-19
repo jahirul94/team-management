@@ -4,12 +4,12 @@ import { useState } from "react";
 
 const CreateTeam = () => {
     const [isOpen, setIsOpen] = useState(false);
-     
-    const openModal = () => {
+
+    const openModal = (): void => {
         setIsOpen(true);
     };
 
-    const closeModal = () => {
+    const closeModal = (): void => {
         setIsOpen(false);
     };
 
@@ -22,8 +22,8 @@ const CreateTeam = () => {
             <div>
                 <button className="bg-white text-indigo-500 border
                   border-indigo-500 py-3 px-6 rounded hover:bg-indigo-500 hover:text-white transition duration-300 text-xl font-bold" onClick={openModal} >+ Create a Team</button>
-            </div> 
-            {isOpen && <Modal></Modal>}
+            </div>
+            {isOpen && <Modal closeModal={closeModal}></Modal>};
         </div>
     );
 };
