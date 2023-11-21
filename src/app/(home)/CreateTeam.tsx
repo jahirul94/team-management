@@ -1,5 +1,7 @@
 "use client"
+
 import Modal from "@/components/Modal";
+import PrivateRoutes from "@/utils/PrivateRoutes";
 import { useState } from "react";
 
 const CreateTeam = () => {
@@ -14,17 +16,20 @@ const CreateTeam = () => {
     };
 
     return (
-        <div className="flex justify-between my-20">
-            <div>
-                <h2 className="text-4xl font-bold">Team Creation management system</h2>
-                <h4 className="text-2xl font-bold">Existing Team</h4>
+        <>
+            <div className="flex justify-between my-20">
+                <div>
+                    <h2 className="text-4xl font-bold">Team Creation management system</h2>
+                    <h4 className="text-2xl font-bold text-slate-400 my-2">Existing Team</h4>
+                </div>
+                <div>
+                    <button className="outline-btn" onClick={openModal} >+ Create a Team</button>
+                </div>
             </div>
             <div>
-                <button className="bg-white text-indigo-500 border
-                  border-indigo-500 py-3 px-6 rounded hover:bg-indigo-500 hover:text-white transition duration-300 text-xl font-bold" onClick={openModal} >+ Create a Team</button>
+                {isOpen && <PrivateRoutes><Modal closeModal={closeModal}></Modal></PrivateRoutes>};
             </div>
-            {isOpen && <Modal closeModal={closeModal}></Modal>};
-        </div>
+        </>
     );
 };
 

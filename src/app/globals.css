@@ -3,6 +3,34 @@
 @tailwind utilities;
 
 .primary-button {
-    @apply bg-white text-indigo-500 border
-    border-indigo-500 py-3 px-6 rounded hover:bg-indigo-500 hover:text-white transition duration-300 text-xl font-bold
+    @apply bg-white text-indigo-500 border border-indigo-500 py-3 px-6 hover:bg-indigo-500 hover:text-white transition duration-300 text-xl font-bold w-full mx-4 rounded-3xl
+}
+
+.disabled-button {
+    @apply bg-white text-slate-500 border py-3 px-6 text-xl font-bold w-full mx-4 rounded-3xl
+}
+
+.outline-btn {
+    @apply bg-white text-indigo-500 border border-indigo-500 py-4 px-6 rounded hover:bg-indigo-500 hover:text-white transition duration-300 text-xl font-bold
+}
+
+.muted-btn {
+    @apply bg-white text-indigo-300 border border-indigo-300 py-3 
+    px-6 rounded text-xl font-bold
+}
+
+.input-field {
+    @apply border border-blue-400 px-4 py-3 my-2 w-full rounded-lg
+}
+
+.modal-input {
+    @apply border border-blue-400 px-4 py-4 my-4 w-full rounded-lg
+}
+
+.submit-btn {
+    @apply border px-5 py-3 w-full bg-blue-600 text-white text-xl rounded-lg my-3
+}
+
+.dashboardCard {
+    @apply px-10 text-center py-8
 }

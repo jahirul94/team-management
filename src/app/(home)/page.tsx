@@ -3,9 +3,9 @@ import DisplayTeams from './DisplayTeams';
 
 export const metadata = {
     title: "Home",
-  };
+};
 
-const HomePage = async() => {
+const HomePage = () => {
     return (
         <div className='px-24'>
             <CreateTeam></CreateTeam>
