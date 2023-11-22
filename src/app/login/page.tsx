@@ -3,9 +3,11 @@ import { useContext } from "react";
 import { AuthContext } from "@/providers/AuthProvider";
 import Link from "next/link";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 const LoginPage = () => {
     const { signUpUser }: any = useContext(AuthContext)
+    const router = useRouter();
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const email: string = e.target.email.value;
@@ -14,7 +16,12 @@ const LoginPage = () => {
             .then((data: object) => {
                 if (data) {
                     axios.post("https://little-programmers-frontend-api-abdurrahmantalha.vercel.app/api/v1/user/login", { email, password })
-                        .then(data => { })
+                        .then(data => {
+                            if(data){
+                                console.log(data.data);
+                                return router.push("/")
+                            }
+                        })
                 }
 
             })

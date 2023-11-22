@@ -17,13 +17,13 @@ const CreateTeam = () => {
 
     return (
         <>
-            <div className="flex justify-between my-20">
+            <div className="flex flex-col md:flex-row justify-between my-6 md:my-10 lg:my-20">
                 <div>
-                    <h2 className="text-4xl font-bold">Team Creation management system</h2>
-                    <h4 className="text-2xl font-bold text-slate-400 my-2">Existing Team</h4>
+                    <h2 className="text-xl md:text-2xl lg:text-4xl font-bold">Team Creation management system</h2>
+                    <h4 className="text-lg md:text-xl lg:text-2xl font-bold text-slate-400 my-2">Existing Team</h4>
                 </div>
                 <div>
-                    <button className="outline-btn" onClick={openModal} >+ Create a Team</button>
+                    <button className="outline-btn my-4 md:my-0" onClick={openModal} >+ Create a Team</button>
                 </div>
             </div>
             <div>

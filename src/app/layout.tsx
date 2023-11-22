@@ -16,9 +16,9 @@ const RootLayout = ({ children }: { children: React.ReactNode }) => {
     <html lang="en">
       <body>
         <AuthProvider>
-          <div className='w-[1920px] h-[1080px] mx-auto'>
+          <div className='max-w-[1920px] h-[1080px] mx-auto'>
             <Navbar></Navbar>
-            <main className="mt-5">{children}</main>
+            <main>{children}</main>
           </div>
         </AuthProvider>
       </body>

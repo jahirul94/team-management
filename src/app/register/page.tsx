@@ -3,10 +3,13 @@
 import { AuthContext } from "@/providers/AuthProvider";
 import axios from "axios";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useContext } from "react";
 
 const RegisterPage = () => {
     const { createUser }: any = useContext(AuthContext)
+    const router = useRouter();
+
     const handleSubmit = (e: any) => {
         e.preventDefault();
         const email: string = e.target.email.value;
@@ -15,7 +18,9 @@ const RegisterPage = () => {
             .then((data: object) => {
                 if (data) {
                     axios.post("https://little-programmers-frontend-api.vercel.app/api/v1/user/register", { email, password })
-                        .then(data => { })
+                        .then(data => { 
+                            router.push("/")
+                        })
                 }
 
             })

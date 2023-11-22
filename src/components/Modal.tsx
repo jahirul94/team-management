@@ -13,8 +13,8 @@ const Modal = ({ closeModal }: any) => {
         category?: string
     }
 
-    const { teamDetails, setTeamDetails , setNewTeam }: any = useContext(AuthContext);
- 
+    const { teamDetails, setTeamDetails, setNewTeam }: any = useContext(AuthContext);
+
     const handleFormData1 = (e: React.FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
         const name: string = (e.target as HTMLFormElement).teamName.value;
@@ -32,18 +32,21 @@ const Modal = ({ closeModal }: any) => {
         setTeamDetails(userData)
         const image = "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
         const description = "new team"
-        const TeamDetails = { name: teamDetails?.teamName, category , image , description}
+
+        const TeamDetails = { name: teamDetails?.teamName, category, description, image }
         axios.post("https://little-programmers-frontend-api-abdurrahmantalha.vercel.app/api/v1/team/create", TeamDetails)
             .then(data => {
+                console.log(data);
                 setNewTeam(data.data.data)
                 return router.push('/dashboard')
             })
+            .catch(error => alert(error.message))
     }
- 
+
     return (
         <div className="fixed inset-0 overflow-y-auto">
             <div className="flex items-center justify-center min-h-screen">
-                <div className="bg-white w-[30%] p-6 rounded shadow-lg shadow-blue-300 py-10 border-t-2 border-blue-400">
+                <div className="bg-white w-11/12 md:w-10/12 lg:w-[40%] p-6 rounded shadow-lg shadow-blue-300 py-10 border-t-2 border-blue-400">
                     {!toggle && <form onSubmit={handleFormData1}>
                         <div className="mt-4">
                             <h2 className="text-2xl font-bold pb-4">Create a new CreateTeam</h2>

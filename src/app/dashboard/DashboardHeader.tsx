@@ -1,9 +1,10 @@
 "use client"
 import { useState } from "react"
 import DashboardModal from "./DashboardModal";
-import { User } from "./page";
+import { Team, User } from "./[id]/page";
 
-const DashboardHeader = ({ users }: { users: Array<User> }) => {
+
+const DashboardHeader = ({ users, team }: { users: Array<User>, team: Team }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     const openModal = (): void => {
@@ -15,19 +16,19 @@ const DashboardHeader = ({ users }: { users: Array<User> }) => {
     };
 
     return (
-        <div className="flex justify-between py-10">
+        <div className="flex flex-col md:flex-row justify-between py-4 md:py-6 lg:py-10">
             <div>
-                <p className="text-3xl font-extrabold my-4">Team Name</p>
-                <div className="flex space-x-2 my-4">
-                    <span className="muted-btn">Active Members</span>
+                <p className="text-xl md:text-2xl lg:text-3xl font-extrabold my-4">Team Name</p>
+                <div className="flex flex-col md:flex-row md:space-x-2 my-4">
+                    <button className="muted-btn">Active Members</button><br />
                     <button className="muted-btn">Pending</button>
                 </div>
             </div>
-            <div className="flex space-x-2 my-4">
-                <button className="submit-btn">Assign a group</button>
-                <button className="submit-btn font-semibold" onClick={openModal}>Add Members</button>
+            <div className="flex flex-col md:flex-row md:space-x-2 my-4">
+                <button className="submit-btn text-center">Assign a group</button>
+                <button className="submit-btn text-center" onClick={openModal}>Add Members</button>
             </div>
-            {isOpen && <DashboardModal users={users} closeModal={closeModal}></DashboardModal>}
+            {isOpen && <DashboardModal team={team} users={users} closeModal={closeModal}></DashboardModal>}
         </div>
     );
 };

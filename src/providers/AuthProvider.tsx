@@ -2,7 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { User, getAuth } from "firebase/auth/cordova";
-import app from '@/firebase/firebase'
+import app from '@/firebaseConfig/firebase'
 
 interface AuthInfo {
   teamDetails: {
@@ -15,8 +15,8 @@ interface AuthInfo {
   createUser: (email: string, pass: string) => void;
   setNewTeam: (team: object) => void;
   signUpUser: (email: string, pass: string) => void;
-  logout: () => void
   user: User | null;
+  logout: () => void
 
 }
 
@@ -42,9 +42,10 @@ const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => 
   }
 
   const logout = () => {
-    setLoading(true);
-    return signOut(auth)
+    setLoading(true)
+    return signOut(auth);
   }
+
   //  console.log(user);
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user: any) => {
