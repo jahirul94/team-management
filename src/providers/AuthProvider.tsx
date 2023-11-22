@@ -2,7 +2,7 @@
 import { createContext, useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
 import { User, getAuth } from "firebase/auth/cordova";
-import app from '@/firebaseConfig/firebase'
+import app from '@/firebaseConfig/firebase.config'
 
 interface AuthInfo {
   teamDetails: {
